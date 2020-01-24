@@ -14,7 +14,6 @@ import (
 // Info holds view attributes.
 type Info struct {
 	BaseURI   string
-	Extension string
 	Folder    string
 	Caching   bool
 	Root     string   `json:"Root"`
@@ -87,7 +86,7 @@ func (v *Info) Render(w http.ResponseWriter, r *http.Request) error {
 		// Loop through each template and test the full path
 		for i, name := range v.templates {
 			// Get the absolute path of the root template
-			path, err := filepath.Abs(v.Folder + string(os.PathSeparator) + name + "." + v.Extension)
+			path, err := filepath.Abs(v.Folder + string(os.PathSeparator) + name)
 			if err != nil {
 				http.Error(w, "Template Path Error: "+err.Error(), http.StatusInternalServerError)
 				return err
@@ -121,7 +120,7 @@ func (v *Info) Render(w http.ResponseWriter, r *http.Request) error {
 	}
 
 	// Display the content to the screen
-	err := tc.Funcs(pc).ExecuteTemplate(w, baseTemplate+"."+v.Extension, v.Vars)
+	err := tc.Funcs(pc).ExecuteTemplate(w, baseTemplate, v.Vars)
 
 	if err != nil {
 		http.Error(w, "Template File Error: "+err.Error(), http.StatusInternalServerError)

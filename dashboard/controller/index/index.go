@@ -1,7 +1,6 @@
 package index
 
 import (
-	//"fmt"
 	"github.com/puresoul/dashboard/dashboard"
 	"github.com/puresoul/dashboard/lib/config/flight"
 	"net/http"
@@ -14,7 +13,7 @@ func Load() {
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	c := flight.Context(w, r)
-	v := c.View.New("home/index")
-    v.Render(w, r)
-	//fmt.Fprint(w, "1")
+	v := c.View.New("home/index.ace")
+	v.Vars["var"] = "Ahoj svete"
+	v.Render(w, r)
 }

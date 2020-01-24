@@ -1,3 +1,4 @@
 {{define "content"}}
-lol
+{{template "head.ace" .}}
+{{.var}}
 {{end}}

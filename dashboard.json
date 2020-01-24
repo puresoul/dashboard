@@ -35,13 +35,12 @@
         }
     },
     "View": {
-        "Root": "base",
+        "Root": "base.ace",
         "BaseURI": "/",
-        "Extension": "ace",
         "Folder": "view",
         "Caching": true,
         "Children": [
-            "partial/head"
+            "partial/head.ace"
         ]
     }
 }
