@@ -1,0 +1,43 @@
+{
+	"Enabled": true,
+	"Server": {
+		"Hostname": "127.0.0.1",
+		"UseHTTP": true,
+		"UseHTTPS": false,
+		"RedirectToHTTPS": false,
+		"HTTPPort": 80,
+		"HTTPSPort": 443,
+		"CertFile": "server.crt",
+		"KeyFile": "server.key"
+	},
+    "MySQL": {
+        "Username": "",
+        "Password": "",
+        "Database": "",
+        "Charset": "utf8mb4",
+        "Collation": "utf8mb4_unicode_ci",
+        "Hostname": "127.0.0.1",
+        "Port": 3306,
+        "Parameter": "parseTime=false"
+    },
+    "Version": "",
+    "Session": {
+        "AuthKey": "",
+        "EncryptKey": "",
+        "CSRFKey": "",
+        "Name": "cookies",
+        "Options": {
+            "Path": "/",
+            "Domain": "",
+            "MaxAge": 28800,
+            "Secure": false,
+            "HttpOnly": true
+        }
+    },
+    "View": {
+        "BaseURI": "/",
+        "Extension": "ace",
+        "Folder": "view",
+        "Caching": true
+    }
+}
