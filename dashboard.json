@@ -22,9 +22,9 @@
     },
     "Version": "",
     "Session": {
-        "AuthKey": "",
-        "EncryptKey": "",
-        "CSRFKey": "",
+        "AuthKey": "0a8234bf9ba84d8388e0e158dbdf0f2d",
+        "EncryptKey": "0a8234bf9ba84d8388e0e158dbdf0f2c",
+        "CSRFKey": "0a8234bf9ba84d8388e0e158dbdf0f2e",
         "Name": "cookies",
         "Options": {
             "Path": "/",
@@ -35,9 +35,13 @@
         }
     },
     "View": {
+        "Root": "base",
         "BaseURI": "/",
         "Extension": "ace",
         "Folder": "view",
-        "Caching": true
+        "Caching": true,
+        "Children": [
+            "partial/head"
+        ]
     }
 }

@@ -16,6 +16,8 @@ func RegisterDashboard(config *env.Info) {
 	mysqlDB, _ := config.MySQL.Connect(true)
 	controller.LoadRoutes()
 	// Store the variables in flight
+
+	config.View.SetTemplates(config.View.Root, config.View.Children)
 	flight.StoreConfig(*config)
 
 	// Store the database connection in flight

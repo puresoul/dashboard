@@ -29,8 +29,8 @@ type Info struct {
 	MySQL   mysql.Info   `json:"MySQL"`
 	Server  server.Info  `json:"Server"`
 	Session session.Info `json:"Session"`
-	Version string       `json:"Version"`
 	View    view.Info    `json:"View"`
+	Version string       `json:"Version"`
 	Path    string
 }
 
