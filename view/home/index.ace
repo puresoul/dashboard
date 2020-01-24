@@ -1,4 +1,0 @@
-{{define "content"}}
-{{template "head.ace" .}}
-{{.var}}
-{{end}}
