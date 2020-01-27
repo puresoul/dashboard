@@ -13,8 +13,8 @@ type Connection interface {
 	Select(dest interface{}, query string, args ...interface{}) error
 }
 
-func InsertUser(db Connection, id, em, pswd string) (string, error) {
-	res, err := db.Exec(fmt.Sprint(`INSERT INTO Users VALUES (null,?, ?, 1, ?)`), em, pswd, id)
+func InsertUser(db Connection, em, pswd string) (string, error) {
+	res, err := db.Exec(fmt.Sprint(`INSERT INTO Users VALUES (null,?, ?, 1)`), em, pswd)
 	if err != nil {
 		return "", err
 	}
