@@ -4,7 +4,7 @@ package boot
 import (
 	"net/http"
 
-	"github.com/puresoul/dashboard/lib/middleware/logrequest"
+	"dashboard/lib/middleware/logrequest"
 	"github.com/gorilla/context"
 
 	"github.com/justinas/alice"

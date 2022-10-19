@@ -1,0 +1,77 @@
+#podtable-container {
+    position: relative;
+    overflow-x: hidden;
+    padding: 0px;
+}
+
+#podtable-container table {
+    width: 100%;
+}
+
+#podtable-container table .toggle,
+#podtable-container table .main-toggle {
+    cursor: pointer;
+}
+
+#podtable-container table.show-toggle .toggle::before,
+#podtable-container table.show-toggle .main-toggle::before {
+    content: '';
+    position: absolute !important;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: block;
+    text-indent: 0 !important;
+    font-weight: 400;
+    text-decoration: none;
+    outline: none;
+    color: #666;
+    width: 1.075rem;
+    height: 1.075rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-size: 0.65rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: transform 0.1s ease-in-out;
+    right: 0.5rem;
+}
+
+#podtable-container table.show-toggle .toggle::before {
+    margin-top: -0.5rem;
+}
+
+#podtable-container table.show-toggle .main-toggle::before {
+    margin-top: -1.15rem; 
+}
+
+#podtable-container table.show-toggle .has-child .toggle::before,
+#podtable-container table.show-toggle .main-toggle.expanded::before {
+    transform: rotate(180deg);
+}
+
+#podtable-container table .hidden {
+    display: none;
+}
+
+#podtable-container table .child .child-grid-col {
+    flex: 1 1 auto;
+    padding: 5px 10px 8px 0px;
+    
+}
+
+#podtable-container table .child .child-grid-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#podtable-container table .child .child-grid-row > .child-grid-col > div:nth-child(1) {
+    font-weight: 500;
+    font-size: 0.72rem;
+    color: #6c757d;
+    line-height: 0.92rem;
+}
+
+#podtable-container table .child .child-grid-row > .child-grid-col > div:nth-child(2) {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #24282c;
+}

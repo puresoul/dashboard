@@ -3,10 +3,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/puresoul/dashboard/dashboard"
-	"github.com/puresoul/dashboard/lib/config/env"
-	"github.com/puresoul/dashboard/lib/system/boot"
-	"github.com/puresoul/dashboard/lib/system/server"
+	"dashboard/lib/system/router"
+	"dashboard/lib/config/env"
+	"dashboard/lib/system/boot"
+	"dashboard/lib/system/server"
 	"log"
 	"runtime"
 	"sync"
@@ -41,7 +41,7 @@ func main() {
 					fmt.Println(config)
 					boot.RegisterDashboard(config)
 					// Retrieve the middleware
-					handler := boot.SetUpMiddleware(dashboard.Instance())
+					handler := boot.SetUpMiddleware(router.Instance())
 					// Start the HTTP and HTTPS listeners
 					server.Run(
 						handler,       // HTTP handler

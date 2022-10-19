@@ -16,7 +16,6 @@ type Info struct {
 	BaseURI   string
 	Folder    string
 	Caching   bool
-	Root     string   `json:"Root"`
 	Children []string `json:"Children"`
 
 	Vars      map[string]interface{}
@@ -40,10 +39,10 @@ type Info struct {
 // *****************************************************************************
 
 // New accepts multiple templates and then returns a new view.
-func (v *Info) New(templateList ...string) *Info {
+func (v *Info) New(template string) *Info {
 	v.Vars = make(map[string]interface{})
-	v.templates = append(v.templates, templateList...)
-	v.base = v.rootTemplate
+	v.templates = append(v.templates, template)
+	v.base = template
 
 	return v
 }
@@ -61,9 +60,6 @@ func (v *Info) Base(base string) *Info {
 // Render parses one or more templates and outputs to the screen.
 // Also returns an error if anything is wrong.
 func (v *Info) Render(w http.ResponseWriter, r *http.Request) error {
-	// Add the base template
-	v.templates = append([]string{v.base}, v.templates...)
-
 	// Add the child templates
 	v.templates = append(v.templates, v.childTemplates...)
 
@@ -149,12 +145,10 @@ func (c *Info) modify() []ModifyFunc {
 }
 
 // SetTemplates will set the root and child templates.
-func (c *Info) SetTemplates(rootTemp string, childTemps []string) {
+func (c *Info) SetTemplates(childTemps []string) {
 	c.mutex.Lock()
 	c.templateCollection = make(map[string]*template.Template)
 	c.mutex.Unlock()
-
-	c.rootTemplate = rootTemp
 	c.childTemplates = childTemps
 }
 

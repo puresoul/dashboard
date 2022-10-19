@@ -5,7 +5,7 @@
 		"UseHTTP": true,
 		"UseHTTPS": false,
 		"RedirectToHTTPS": false,
-		"HTTPPort": 80,
+		"HTTPPort": 8080,
 		"HTTPSPort": 443,
 		"CertFile": "server.crt",
 		"KeyFile": "server.key"
@@ -35,12 +35,13 @@
         }
     },
     "View": {
-        "Root": "base",
         "BaseURI": "/",
         "Folder": "view",
         "Caching": true,
         "Children": [
-            "partial/head"
+            "partial/head",
+            "partial/foot",
+	    "partial/menu"
         ]
     }
 }

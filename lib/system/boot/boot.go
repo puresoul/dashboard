@@ -2,11 +2,11 @@
 package boot
 
 import (
-	"github.com/puresoul/dashboard/dashboard/controller"
-	"github.com/puresoul/dashboard/lib/config/env"
-	"github.com/puresoul/dashboard/lib/config/flight"
-	"github.com/puresoul/dashboard/lib/viewfunc/authlevel"
-	"github.com/puresoul/dashboard/lib/viewfunc/noescape"
+	"dashboard/controller"
+	"dashboard/lib/config/env"
+	"dashboard/lib/config/flight"
+	"dashboard/lib/viewfunc/authlevel"
+	"dashboard/lib/viewfunc/noescape"
 	"log"
 )
 
@@ -21,7 +21,7 @@ func RegisterDashboard(config *env.Info) {
 
 	controller.LoadRoutes()
 
-	config.View.SetTemplates(config.View.Root, config.View.Children)
+	config.View.SetTemplates(config.View.Children)
 
 	config.View.SetFuncMaps(
 		noescape.Map(),

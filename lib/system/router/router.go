@@ -3,11 +3,11 @@
 package router
 
 import (
-	"net/http"
-	"sync"
-
 	"fmt"
 	"github.com/husobee/vestigo"
+	"github.com/justinas/alice"
+	"net/http"
+	"sync"
 )
 
 // *****************************************************************************
@@ -21,18 +21,29 @@ var (
 	listMutex sync.RWMutex
 )
 
+// init sets up the router.
+func init() {
+	ResetConfig()
+}
+
+// Record stores the method and path.
+func record(method, path string) {
+	listMutex.Lock()
+	routeList = append(routeList, fmt.Sprintf("%v\t%v", method, path))
+	listMutex.Unlock()
+}
+
 // ResetConfig creates a new instance.
-func ResetConfig(x *vestigo.Router) *vestigo.Router {
+func ResetConfig() {
 	infoMutex.Lock()
 	routeList = []string{}
+	r = vestigo.NewRouter()
 	infoMutex.Unlock()
-	return x
 }
 
 // Instance returns the router.
-func Instance(x *vestigo.Router) *vestigo.Router {
+func Instance() *vestigo.Router {
 	infoMutex.RLock()
-	r = ResetConfig(x)
 	defer infoMutex.RUnlock()
 	return r
 }
@@ -49,13 +60,6 @@ func MethodNotAllowed(fn vestigo.MethodNotAllowedHandlerFunc) {
 	infoMutex.Lock()
 	vestigo.CustomMethodNotAllowedHandlerFunc(fn)
 	infoMutex.Unlock()
-}
-
-// Record stores the method and path.
-func record(method, path string) {
-	listMutex.Lock()
-	routeList = append(routeList, fmt.Sprintf("%v\t%v", method, path))
-	listMutex.Unlock()
 }
 
 // Delete is a shortcut for router.Handle("DELETE", path, handle).

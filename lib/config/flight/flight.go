@@ -2,8 +2,8 @@
 package flight
 
 import (
-	"github.com/puresoul/dashboard/lib/config/env"
-	"github.com/puresoul/dashboard/lib/system/view"
+	"dashboard/lib/config/env"
+	"dashboard/lib/system/view"
 	"net/http"
 	"sync"
 

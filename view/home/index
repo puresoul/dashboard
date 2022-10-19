@@ -1,4 +1,0 @@
-{{define "content"}}
-{{template "head" .}}
-{{NOESCAPE .var}}
-{{end}}

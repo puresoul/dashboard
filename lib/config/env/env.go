@@ -3,11 +3,11 @@ package env
 
 import (
 	"encoding/json"
-	"github.com/puresoul/dashboard/lib/config/jsonconfig"
-	"github.com/puresoul/dashboard/lib/system/mysql"
-	"github.com/puresoul/dashboard/lib/system/server"
-	"github.com/puresoul/dashboard/lib/system/session"
-	"github.com/puresoul/dashboard/lib/system/view"
+	"dashboard/lib/config/jsonconfig"
+	"dashboard/lib/system/mysql"
+	"dashboard/lib/system/server"
+	"dashboard/lib/system/session"
+	"dashboard/lib/system/view"
 )
 
 // *****************************************************************************

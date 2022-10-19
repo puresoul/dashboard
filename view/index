@@ -1,0 +1,3 @@
+{{template "head" .}}
+{{NOESCAPE .var}}
+{{template "foot" .}}

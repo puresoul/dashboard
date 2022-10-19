@@ -4,8 +4,8 @@ package authlevel
 import (
 	"net/http"
 
-	"github.com/puresoul/dashboard/lib/config/flight"
-	"github.com/puresoul/dashboard/lib/system/view"
+	"dashboard/lib/config/flight"
+	"dashboard/lib/system/view"
 )
 
 // Modify sets AuthLevel in the template to auth if the user is authenticated.

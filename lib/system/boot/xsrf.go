@@ -5,10 +5,10 @@ import (
 	"encoding/base64"
 	"log"
 	"net/http"
-
-	"github.com/blue-jay/blueprint/controller/status"
-	"github.com/blue-jay/blueprint/lib/flight"
+	"dashboard/lib/config/flight"
+	"dashboard/controller/status"
 	"github.com/gorilla/csrf"
+	
 )
 
 // setUpCSRF sets up the CSRF protection.

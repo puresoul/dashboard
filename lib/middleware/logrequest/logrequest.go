@@ -6,7 +6,7 @@ package logrequest
 import (
 	"bytes"
 	"fmt"
-	"github.com/puresoul/dashboard/lib/funcs/logger"
+	"dashboard/lib/funcs/logger"
 	"io/ioutil"
 	"net/http"
 )
